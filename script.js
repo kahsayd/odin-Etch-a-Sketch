@@ -15,5 +15,21 @@ function createGrid() {
     }
 }
 
+function addHoverEffect() {
+    const gridSquare = document.querySelectorAll('.grid');
+
+    gridSquare.forEach(gridSquare => {
+        gridSquare.addEventListener('mouseover', () => {
+            gridSquare.classList.add('hoveredOn');
+            gridSquare.style.backgroundColor = 'blue';
+        });
+
+    });
+}
+
+
+
+
 createGrid();
+addHoverEffect();
 
