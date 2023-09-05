@@ -1,35 +1,21 @@
-// create div
-// make 16x16 grid of square divs (for loop)
-// put the grid square divs inside a container div (in html)
-// make the divs appear as a grid
+function createBoard(size) {
+    let board = document.querySelector('.board');
 
-const container = document.querySelector('#container');
+    board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
+    let numDivs = size * size;
 
-
-function createGrid() {
-    for (let i = 0; i < 256; i++) {
-        const gridSquare = document.createElement('div');
-        gridSquare.classList.add('grid');
-        container.appendChild(gridSquare);
+    for(let i = 0; i < numDivs; i++) {
+        let div = document.createElement("div");
+        div.style.backgroundColor = "blue";
+        board.insertAdjacentElement("beforeend", div);
     }
-}
-
-function addHoverEffect() {
-    const gridSquare = document.querySelectorAll('.grid');
-
-    gridSquare.forEach(gridSquare => {
-        gridSquare.addEventListener('mouseover', () => {
-            gridSquare.classList.add('hoveredOn');
-            gridSquare.style.backgroundColor = 'blue';
-        });
-
-    });
+    
 }
 
 
 
 
-createGrid();
-addHoverEffect();
+createBoard(13);
 
